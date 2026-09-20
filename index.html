@@ -9,7 +9,7 @@
 .app{max-width:520px;margin:auto;min-height:100vh;padding:20px 16px 90px}
 .top{display:flex;justify-content:space-between;align-items:center;margin:8px 2px 20px}.title{font-size:25px;font-weight:800}.sub{font-size:13px;color:#888;margin-top:5px}.avatar{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:#eae8ff;color:#635bff;font-weight:800;font-size:21px}
 .card{background:#fff;border-radius:22px;padding:20px;margin-bottom:14px;box-shadow:0 8px 25px #2221}.status h2{font-size:21px;margin:0 0 7px}.muted{color:#888;font-size:13px;line-height:1.7}
-button{border:0;border-radius:999px;padding:13px 18px;font-size:15px;font-weight:700}.pink{background:#ff3b6b;color:#fff;width:100%;margin-top:16px}.purple{background:#635bff;color:#fff}
+button{border:0;border-radius:999px;padding:13px 18px;font-size:15px;font-weight:700}.pink{background:#ff3b6b;color:#fff;width:100%;margin-top:16px}.purple{background:#635bff;color:#fff}.douyin{background:#111;color:#fff;width:100%;margin-top:10px}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.mini{padding:17px;text-align:center;background:#fff;border-radius:18px;font-weight:700}.mini div{font-size:23px;margin-bottom:6px}
 .banner{padding:22px;border-radius:20px;background:linear-gradient(135deg,#ffe8ef,#ece9ff);font-size:19px;font-weight:800;margin:14px 0}.banner small{display:block;font-size:13px;margin-top:5px;font-weight:500}
 .section{font-size:18px;font-weight:800;margin:22px 0 10px}.row{display:flex;justify-content:space-between;gap:10px;align-items:center}.watch{background:#635bff;color:#fff;padding:10px 14px;border-radius:999px;font-size:12px}
@@ -17,14 +17,19 @@ button{border:0;border-radius:999px;padding:13px 18px;font-size:15px;font-weight
 .nav{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #eee;height:70px;display:flex;justify-content:center}.navin{width:min(520px,100%);display:flex;justify-content:space-around;align-items:center}.nav button{background:none;color:#777;padding:5px;font-size:12px}.nav button.active{color:#ff3b6b}
 .page{display:none}.page.active{display:block}
 input,textarea{width:100%;border:1px solid #eee;background:#f7f7fb;border-radius:14px;padding:13px;font-size:15px;margin-top:8px}textarea{height:100px}
-.back{background:none;padding:0;color:#555;margin-bottom:15px}
+.back{background:none;padding:0;color:#555;margin-bottom:15px}.hint{font-size:12px;color:#999;margin-top:8px}
 </style>
 </head>
 <body>
 <div class="app">
   <div id="home" class="page active">
     <div class="top"><div><div class="title">莉的直播间</div><div class="sub">抖音号：RuoHong658</div></div><div class="avatar">莉</div></div>
-    <div class="card status"><h2 id="status">⚪ 当前未开播</h2><div class="muted" id="next">下次直播：今晚 20:00</div><button class="pink" onclick="remind()">🔔 提醒我</button></div>
+    <div class="card status">
+      <h2 id="status">⚪ 当前未开播</h2>
+      <div class="muted" id="next">下次直播：今晚 20:00</div>
+      <button class="pink" onclick="remind()">🔔 提醒我</button>
+      <button class="douyin" onclick="openDouyin()">🎵 进入抖音看莉</button>
+    </div>
     <div class="grid">
       <div class="mini" onclick="go('records')"><div>📅</div>直播记录</div>
       <div class="mini" onclick="go('replay')"><div>▶️</div>直播回放</div>
@@ -45,9 +50,9 @@ input,textarea{width:100%;border:1px solid #eee;background:#f7f7fb;border-radius
 
   <div id="replay" class="page">
     <button class="back" onclick="go('home')">‹ 返回</button><div class="title">直播回放</div>
-    <div class="card item"><div class="thumb">▶</div><div><b>9月20日直播回放</b><div class="muted">20:03—23:21<br>3小时18分钟</div><button class="purple" onclick="alert('这里以后接入你的真实录屏播放')">观看回放</button></div></div>
-    <div class="card item"><div class="thumb">▶</div><div><b>9月19日直播回放</b><div class="muted">19:56—23:58<br>4小时02分钟</div><button class="purple" onclick="alert('这里以后接入你的真实录屏播放')">观看回放</button></div></div>
-    <div class="card item"><div class="thumb">▶</div><div><b>9月18日直播回放</b><div class="muted">20:08—22:45<br>2小时37分钟</div><button class="purple" onclick="alert('这里以后接入你的真实录屏播放')">观看回放</button></div></div>
+    <div class="card item"><div class="thumb">▶</div><div><b>9月20日直播回放</b><div class="muted">20:03—23:21<br>3小时18分钟</div><button class="purple" onclick="alert('真实视频播放将在接入云端视频后启用')">观看回放</button></div></div>
+    <div class="card item"><div class="thumb">▶</div><div><b>9月19日直播回放</b><div class="muted">19:56—23:58<br>4小时02分钟</div><button class="purple" onclick="alert('真实视频播放将在接入云端视频后启用')">观看回放</button></div></div>
+    <div class="card item"><div class="thumb">▶</div><div><b>9月18日直播回放</b><div class="muted">20:08—22:45<br>2小时37分钟</div><button class="purple" onclick="alert('真实视频播放将在接入云端视频后启用')">观看回放</button></div></div>
   </div>
 
   <div id="profile" class="page">
@@ -60,22 +65,51 @@ input,textarea{width:100%;border:1px solid #eee;background:#f7f7fb;border-radius
 
   <div id="admin" class="page">
     <button class="back" onclick="go('home')">‹ 返回</button><div class="title">主播后台</div>
-    <div class="card"><b>直播状态</b><button class="pink" onclick="toggleLive()">切换：开播 / 未开播</button></div>
-    <div class="card"><b>下一场直播</b><input value="今晚 20:00"></div>
-    <div class="card"><b>通知文案</b><textarea>今晚8点准时开播，等你来！</textarea><button class="purple" style="width:100%;margin-top:12px" onclick="alert('第一版已保存演示设置')">保存设置</button></div>
-    <div class="card"><b>录屏</b><div class="muted">这里以后接入真实录屏上传与云端存储。</div><button class="purple" style="width:100%;margin-top:12px" onclick="alert('下一版接入上传功能')">上传今天录屏</button></div>
+    <div class="card">
+      <b>直播状态</b>
+      <button class="pink" onclick="toggleLive()">切换：开播 / 未开播</button>
+      <div class="hint">当前版本会把设置保存在这台手机的浏览器里。</div>
+    </div>
+    <div class="card">
+      <b>下一场直播</b>
+      <input id="nextInput" value="今晚 20:00">
+    </div>
+    <div class="card">
+      <b>通知文案</b>
+      <textarea id="noticeInput">今晚8点准时开播，等你来！</textarea>
+      <button class="purple" style="width:100%;margin-top:12px" onclick="saveSettings()">保存设置</button>
+    </div>
+    <div class="card">
+      <b>抖音入口</b>
+      <div class="muted">粉丝点击首页「进入抖音看莉」后，会打开抖音搜索 RuoHong658。</div>
+      <button class="douyin" onclick="openDouyin()">打开抖音</button>
+    </div>
+    <div class="card">
+      <b>录屏</b>
+      <div class="muted">真实录屏上传、云端存储和粉丝在线播放，需要下一阶段接入服务器。</div>
+    </div>
   </div>
 </div>
+
 <div class="nav"><div class="navin">
 <button id="n-home" class="active" onclick="go('home')">⌂<br>首页</button>
 <button id="n-records" onclick="go('records')">▣<br>记录</button>
 <button id="n-replay" onclick="go('replay')">▶<br>回放</button>
 <button id="n-profile" onclick="go('profile')">♙<br>我的</button>
 </div></div>
+
 <script>
+const DOUYIN_URL='https://www.douyin.com/search/RuoHong658?type=user';
+let live=localStorage.getItem('li_live')==='1';
 function go(id){document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));let n=document.getElementById('n-'+id);if(n)n.classList.add('active');window.scrollTo(0,0)}
-function remind(){alert('提醒功能入口已准备好；正式版需要接入微信订阅消息。')}
-function toggleLive(){let s=document.getElementById('status');if(s.textContent.includes('未开播')){s.textContent='🔴 正在直播';document.getElementById('next').textContent='直播时间：刚刚开播';}else{s.textContent='⚪ 当前未开播';document.getElementById('next').textContent='下次直播：今晚 20:00';}}
+function openDouyin(){window.open(DOUYIN_URL,'_blank')}
+function remind(){alert('提醒入口已准备好。真正的微信订阅消息需要接入微信通知服务。')}
+function render(){document.getElementById('status').textContent=live?'🔴 正在直播':'⚪ 当前未开播';document.getElementById('next').textContent=live?'直播时间：刚刚开播':'下次直播：'+(localStorage.getItem('li_next')||'今晚 20:00')}
+function toggleLive(){live=!live;localStorage.setItem('li_live',live?'1':'0');render()}
+function saveSettings(){let v=document.getElementById('nextInput').value.trim()||'今晚 20:00';localStorage.setItem('li_next',v);localStorage.setItem('li_notice',document.getElementById('noticeInput').value);render();alert('已保存到这台手机。')}
+document.getElementById('nextInput').value=localStorage.getItem('li_next')||'今晚 20:00';
+document.getElementById('noticeInput').value=localStorage.getItem('li_notice')||'今晚8点准时开播，等你来！';
+render();
 </script>
 </body>
 </html>
