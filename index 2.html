@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>莉的直播间</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f7f6fc;color:#17171b;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Helvetica Neue",Arial,sans-serif}
+.wrap{max-width:760px;margin:auto;padding:24px 16px 100px}
+.top{display:flex;justify-content:space-between;align-items:center;margin:8px 4px 20px}
+h1{font-size:30px;margin:0 0 8px}.sub{color:#8b8b94;font-size:16px}
+.avatar{width:58px;height:58px;border-radius:50%;background:#eee8ff;display:flex;align-items:center;justify-content:center;color:#6557ed;font-weight:800;font-size:24px}
+.card{background:white;border-radius:28px;padding:28px 22px;margin-bottom:18px;box-shadow:0 4px 18px rgba(0,0,0,.04)}
+.status{display:flex;align-items:center;gap:10px;font-size:22px;font-weight:800}.dot{width:18px;height:18px;border-radius:50%;background:#ccc}.dot.live{background:#ff315f;box-shadow:0 0 0 5px #ffe5eb}
+.next{color:#888;margin:12px 0 20px;font-size:17px}
+.btn{border:0;border-radius:30px;padding:16px;width:100%;font-size:18px;font-weight:800;cursor:pointer}
+.pink{background:#ff3567;color:white}.douyin{background:#111;color:#fff;margin-top:12px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.tile{background:white;border-radius:24px;padding:26px 10px;text-align:center;font-size:18px;font-weight:800;min-height:120px}.ico{font-size:28px;margin-bottom:10px}
+.banner{background:linear-gradient(135deg,#ffeaf0,#eeeaff);border-radius:24px;padding:22px;margin:20px 0}.banner b{font-size:20px}.banner div{margin-top:8px}
+.section{font-size:24px;font-weight:800;margin:24px 4px 12px}
+.record{background:white;border-radius:24px;padding:20px;font-size:17px}.record strong{font-size:20px}
+.bottom{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid #eee;display:flex;justify-content:space-around;padding:10px 4px calc(10px + env(safe-area-inset-bottom));z-index:5}.nav{color:#777;text-align:center;font-size:13px}.nav.active{color:#ff3567}.nav div:first-child{font-size:20px;margin-bottom:3px}
+.small{color:#999;font-size:14px;margin-top:12px;line-height:1.6}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div><h1>莉的直播间</h1><div class="sub">抖音号：RuoHong658</div></div>
+    <div class="avatar">莉</div>
+  </div>
+
+  <div class="card">
+    <div class="status"><span id="dot" class="dot"></span><span id="statusText">当前未开播</span></div>
+    <div class="next">下次直播：<span id="nextLive">今晚 20:00</span></div>
+    <button class="btn pink" onclick="remind()">🔔 提醒我</button>
+    <button class="btn douyin" onclick="openDouyin()">🎵 进入抖音看莉</button>
+    <div class="small">点击后会打开抖音并搜索「RuoHong658」。目前暂未验证专属直播间链接，因此先使用抖音搜索入口。</div>
+  </div>
+
+  <div class="grid">
+    <div class="tile" onclick="alert('直播记录功能正在完善中')"><div class="ico">📅</div>直播记录</div>
+    <div class="tile" onclick="alert('真实回放需要接入云视频存储')"><div class="ico">▶️</div>直播回放</div>
+    <div class="tile" onclick="alert('预约功能正在完善中')"><div class="ico">🔔</div>我的预约</div>
+    <div class="tile" onclick="location.hash='admin'"><div class="ico">⚙️</div>主播后台</div>
+  </div>
+
+  <div class="banner"><b>感谢每一个一直陪伴我的你 ❤️</b><div>每天开播记录与回放都在这里</div></div>
+
+  <div class="section">最近直播</div>
+  <div class="record"><strong>9月20日 20:03 开播</strong><div class="small">直播记录展示区域 · 后续可接入真实直播数据</div></div>
+</div>
+
+<div class="bottom">
+  <div class="nav active"><div>⌂</div>首页</div><div class="nav"><div>▣</div>记录</div><div class="nav"><div>▶</div>回放</div><div class="nav"><div>♙</div>我的</div>
+</div>
+
+<script>
+const DOUYIN_URL='https://www.douyin.com/search/RuoHong658?type=user';
+function openDouyin(){window.location.href=DOUYIN_URL}
+function remind(){alert('已记录你的提醒意愿。真正的开播推送需要接入通知服务，下一步可以继续做。')}
+</script>
+</body>
+</html>
